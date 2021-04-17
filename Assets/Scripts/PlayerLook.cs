@@ -16,7 +16,7 @@ using UnityEngine;
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void HandleMovement()
@@ -31,6 +31,11 @@ using UnityEngine;
 
             cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);
+
+            if(Input.GetButtonDown("Cancel"))
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 
